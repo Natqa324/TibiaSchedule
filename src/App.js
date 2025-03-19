@@ -43,7 +43,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<BrowserRouter basename='/tibiaschedule'>
+			<BrowserRouter>
 				<Routes>
 					<Route path='' element={<Main schedule={schedule} />} />
 					<Route
