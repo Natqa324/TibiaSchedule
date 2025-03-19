@@ -1,7 +1,7 @@
 // src/components/Register.js
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth'; // Importujemy funkcję
+import { createUserWithEmailAndPassword } from 'firebase/auth'; 
 
 const Register = () => {
 	const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const Register = () => {
 
 	const createUserWithEmailAndPasswordHandler = (event, email, password) => {
 		event.preventDefault();
-		createUserWithEmailAndPassword(auth, email, password) // Używamy funkcji z auth
+		createUserWithEmailAndPassword(auth, email, password)
 			.catch((error) => {
 				setError(error.message);
 				console.error(

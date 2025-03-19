@@ -28,7 +28,7 @@ export default function SelectOptions() {
 	}, [db]);
 
 	return (
-		<select>
+		<select disabled>
 			<option></option>
 			{rangeLevelsFromFirebase.map((el) => {
 				return (
