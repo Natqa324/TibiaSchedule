@@ -2,7 +2,7 @@
 	"name": "tibiaschedule",
 	"version": "0.1.2",
 	"private": true,
-	"homepage": "https://natqa324.github.io/tibiaschedule",
+	"homepage": "https://natqa324.github.io/tibiaschedule/",
 	"dependencies": {
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/jest-dom": "^6.6.3",
