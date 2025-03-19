@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { daysOfWeek } from '../hooks/daysOfWeek';
 import { Tooltip } from 'react-tooltip';
-import { Link } from 'react-router-dom';
 
 const timeSlots = Array.from({ length: 24 }, (_, i) => ({
 	start: `${i.toString().padStart(2, '0')}:00`,
@@ -44,7 +43,6 @@ export default function Main({ schedule }) {
 			<Link id='undoButton' to='/apipage'>
 				↩ PANEL
 			</Link>
-			;
 			<table>
 				<thead>
 					<tr>
