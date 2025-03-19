@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TibiaSchedule/static/css/main.9bf06d3f.css",
-    "main.js": "/TibiaSchedule/static/js/main.0848daa3.js",
-    "static/js/453.e1aee786.chunk.js": "/TibiaSchedule/static/js/453.e1aee786.chunk.js",
-    "index.html": "/TibiaSchedule/index.html",
-    "main.9bf06d3f.css.map": "/TibiaSchedule/static/css/main.9bf06d3f.css.map",
-    "main.0848daa3.js.map": "/TibiaSchedule/static/js/main.0848daa3.js.map",
-    "453.e1aee786.chunk.js.map": "/TibiaSchedule/static/js/453.e1aee786.chunk.js.map"
+    "main.css": "/tibiaschedule/static/css/main.9bf06d3f.css",
+    "main.js": "/tibiaschedule/static/js/main.08b784e3.js",
+    "static/js/453.e1aee786.chunk.js": "/tibiaschedule/static/js/453.e1aee786.chunk.js",
+    "index.html": "/tibiaschedule/index.html",
+    "main.9bf06d3f.css.map": "/tibiaschedule/static/css/main.9bf06d3f.css.map",
+    "main.08b784e3.js.map": "/tibiaschedule/static/js/main.08b784e3.js.map",
+    "453.e1aee786.chunk.js.map": "/tibiaschedule/static/js/453.e1aee786.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9bf06d3f.css",
-    "static/js/main.0848daa3.js"
+    "static/js/main.08b784e3.js"
   ]
 }
