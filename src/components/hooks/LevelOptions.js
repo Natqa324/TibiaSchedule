@@ -29,7 +29,7 @@ export default function SelectOptions() {
 
 	return (
 		<select disabled>
-			<option></option>
+			<option style={{ cursor: 'not-allowed' }}>--soon--</option>
 			{rangeLevelsFromFirebase.map((el) => {
 				return (
 					<React.Fragment key={el.id}>
