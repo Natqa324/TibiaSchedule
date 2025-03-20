@@ -66,12 +66,12 @@ function App() {
 								path={newDay}
 								element={
 									accessCode ? (
-										<Main schedule={schedule} />
-									) : (
 										<DayPage
 											day={newDay}
 											schedule={schedule}
 										/>
+									) : (
+										<Login setAccessCode={setAccessCode} />
 									)
 								}
 							/>
