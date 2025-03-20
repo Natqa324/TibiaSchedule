@@ -13,6 +13,7 @@ function App() {
 	const [schedule, setSchedule] = useState({});
 	const db = getFirestore(app);
 	const scheduleDocRef = doc(db, 'schedules', 'globalScheduleId');
+	const basename = process.env.REACT_APP_HOMEPAGE ? '/tibiaschedule/' : '/';
 	const [accessCode, setAccessCode] = useState(
 		localStorage.getItem('accessCode') || ''
 	);
@@ -45,7 +46,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<BrowserRouter basename='/tibiaschedule/'>
+			<BrowserRouter basename={basename}>
 				<Routes>
 					<Route
 						path=''
