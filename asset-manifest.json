@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tibiaschedule/static/css/main.9bf06d3f.css",
-    "main.js": "/tibiaschedule/static/js/main.35e6f9e6.js",
-    "static/js/453.e1aee786.chunk.js": "/tibiaschedule/static/js/453.e1aee786.chunk.js",
-    "index.html": "/tibiaschedule/index.html",
-    "main.9bf06d3f.css.map": "/tibiaschedule/static/css/main.9bf06d3f.css.map",
-    "main.35e6f9e6.js.map": "/tibiaschedule/static/js/main.35e6f9e6.js.map",
-    "453.e1aee786.chunk.js.map": "/tibiaschedule/static/js/453.e1aee786.chunk.js.map"
+    "main.css": "/static/css/main.c6cf41e0.css",
+    "main.js": "/static/js/main.f2deb1ee.js",
+    "static/js/453.e1aee786.chunk.js": "/static/js/453.e1aee786.chunk.js",
+    "index.html": "/index.html",
+    "main.c6cf41e0.css.map": "/static/css/main.c6cf41e0.css.map",
+    "main.f2deb1ee.js.map": "/static/js/main.f2deb1ee.js.map",
+    "453.e1aee786.chunk.js.map": "/static/js/453.e1aee786.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bf06d3f.css",
-    "static/js/main.35e6f9e6.js"
+    "static/css/main.c6cf41e0.css",
+    "static/js/main.f2deb1ee.js"
   ]
 }
