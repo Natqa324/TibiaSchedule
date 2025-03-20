@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Main from './components/pages/Main';
 import DayPage from './components/pages/DayPage';
 import { daysOfWeek } from './components/hooks/daysOfWeek';
@@ -17,6 +17,18 @@ function App() {
 	const [accessCode, setAccessCode] = useState(
 		localStorage.getItem('accessCode') || ''
 	);
+	const [accessLevel, setAccessLevel] = useState(null);
+
+	useEffect(() => {
+		const storedCode = localStorage.getItem('accessCode');
+		console.log(storedCode);
+		if (storedCode === process.env.REACT_APP_ADMIN_CODE) {
+			setAccessLevel('admin');
+		} else if (storedCode === process.env.REACT_APP_USER_CODE) {
+			setAccessLevel('user');
+		}
+	}, []);
+
 	useEffect(() => {
 		const unsubscribe = onSnapshot(scheduleDocRef, (docSnapshot) => {
 			if (docSnapshot.exists()) {
@@ -52,7 +64,10 @@ function App() {
 						path=''
 						element={
 							accessCode ? (
-								<Main schedule={schedule} />
+								<Main
+									schedule={schedule}
+									accessLevel={accessLevel}
+								/>
 							) : (
 								<Login setAccessCode={setAccessCode} />
 							)
@@ -66,10 +81,14 @@ function App() {
 								path={newDay}
 								element={
 									accessCode ? (
-										<DayPage
-											day={newDay}
-											schedule={schedule}
-										/>
+										<PrivateRoute
+											accessLevel={accessLevel}
+											requiredLevel='admin'>
+											<DayPage
+												day={newDay}
+												schedule={schedule}
+											/>
+										</PrivateRoute>
 									) : (
 										<Login setAccessCode={setAccessCode} />
 									)
@@ -77,9 +96,29 @@ function App() {
 							/>
 						);
 					})}
+					<Route
+						key='546547'
+						path='/apipage'
+						element={
+							accessCode ? (
+								<ApiPage />
+							) : (
+								<Login setAccessCode={setAccessCode} />
+							)
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
 	);
 }
+
+const PrivateRoute = ({ children, accessLevel, requiredLevel }) => {
+	if (accessLevel === null || accessLevel !== requiredLevel) {
+		return <Navigate to='/' />;
+	}
+
+	return children;
+};
+
 export default App;

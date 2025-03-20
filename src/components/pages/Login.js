@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const Login = ({ setAccessCode }) => {
-	const correctCode = process.env.REACT_APP_CORRECT_CODE;
+	const userCode = process.env.REACT_APP_USER_CODE;
+	const adminCode = process.env.REACT_APP_ADMIN_CODE;
 	const [error, setError] = useState(null);
 	const [state, setState] = useState(null);
 
@@ -12,9 +13,12 @@ const Login = ({ setAccessCode }) => {
 
 	const handleAccess = (event) => {
 		event.preventDefault();
-		if (state === correctCode) {
+		if (state === adminCode) {
 			localStorage.setItem('accessCode', state);
-			setAccessCode(state);
+			setAccessCode('admin');
+		} else if (state === userCode) {
+			localStorage.setItem('accessCode', state);
+			setAccessCode('user');
 		} else {
 			setError('Niepoprawny kod');
 		}

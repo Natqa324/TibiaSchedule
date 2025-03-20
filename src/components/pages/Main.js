@@ -18,7 +18,7 @@ const rainbowColors = [
 	'#9400D3',
 ];
 
-export default function Main({ schedule }) {
+export default function Main({ schedule, accessLevel }) {
 	const getSlotType = (time, day) => {
 		const keyPattern = new RegExp(`^${time}_${day}_.+$`);
 		const matchingKeys = Object.keys(schedule).filter((key) =>
@@ -40,9 +40,11 @@ export default function Main({ schedule }) {
 
 	return (
 		<div className='container'>
-			{/* <Link id='undoButton' to='/apipage'>
+			{accessLevel ? 'test' : 'nie'}
+			{console.log(accessLevel)}
+			<Link id='undoButton' to='/apipage'>
 				↩ PANEL
-			</Link> */}
+			</Link>
 			<table>
 				<thead>
 					<tr>
