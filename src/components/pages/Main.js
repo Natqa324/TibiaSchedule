@@ -40,9 +40,9 @@ export default function Main({ schedule }) {
 
 	return (
 		<div className='container'>
-			<Link id='undoButton' to='/apipage'>
+			{/* <Link id='undoButton' to='/apipage'>
 				↩ PANEL
-			</Link>
+			</Link> */}
 			<table>
 				<thead>
 					<tr>
