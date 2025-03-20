@@ -13,7 +13,7 @@ function App() {
 	const [schedule, setSchedule] = useState({});
 	const db = getFirestore(app);
 	const scheduleDocRef = doc(db, 'schedules', 'globalScheduleId');
-	const basename = process.env.REACT_APP_HOMEPAGE ? '/tibiaschedule/' : '/';
+	const basename = process.env.REACT_APP_BASENAME;
 	const [accessCode, setAccessCode] = useState(
 		localStorage.getItem('accessCode') || ''
 	);
