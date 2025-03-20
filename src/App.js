@@ -8,12 +8,14 @@ import ApiPage from './components/pages/ApiPage';
 import { app } from './firebase';
 import { getFirestore, doc, onSnapshot, setDoc } from 'firebase/firestore';
 import Login from './components/pages/Login';
-import Register from './components/pages/Register';
 
 function App() {
 	const [schedule, setSchedule] = useState({});
 	const db = getFirestore(app);
 	const scheduleDocRef = doc(db, 'schedules', 'globalScheduleId');
+	const [accessCode, setAccessCode] = useState(
+		localStorage.getItem('accessCode') || ''
+	);
 	useEffect(() => {
 		const unsubscribe = onSnapshot(scheduleDocRef, (docSnapshot) => {
 			if (docSnapshot.exists()) {
@@ -43,20 +45,17 @@ function App() {
 
 	return (
 		<div className='App'>
-			<BrowserRouter>
-				{/* <BrowserRouter basename='/tibiaschedule/'> */}
+			<BrowserRouter basename='/tibiaschedule/'>
 				<Routes>
-					<Route path='' element={<Main schedule={schedule} />} />
-					{/* <Route
-						key={3124543}
-						path='/apipage'
-						element={<ApiPage />}
-					/> */}
-					<Route key={1124543} path='/login' element={<Login />} />
 					<Route
-						key={312443}
-						path='/register'
-						element={<Register />}
+						path=''
+						element={
+							accessCode ? (
+								<Main schedule={schedule} />
+							) : (
+								<Login setAccessCode={setAccessCode} />
+							)
+						}
 					/>
 					{daysOfWeek.map((day, index) => {
 						const newDay = day.toLowerCase();
@@ -65,7 +64,14 @@ function App() {
 								key={index}
 								path={newDay}
 								element={
-									<DayPage day={newDay} schedule={schedule} />
+									accessCode ? (
+										<Main schedule={schedule} />
+									) : (
+										<DayPage
+											day={newDay}
+											schedule={schedule}
+										/>
+									)
 								}
 							/>
 						);
