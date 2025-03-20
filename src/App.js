@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/pages/Main';
 import DayPage from './components/pages/DayPage';
 import { daysOfWeek } from './components/hooks/daysOfWeek';
@@ -21,13 +21,12 @@ function App() {
 
 	useEffect(() => {
 		const storedCode = localStorage.getItem('accessCode');
-		console.log(storedCode);
 		if (storedCode === process.env.REACT_APP_ADMIN_CODE) {
-			setAccessLevel('admin');
+			setAccessLevel(process.env.REACT_APP_ADMIN_CODE);
 		} else if (storedCode === process.env.REACT_APP_USER_CODE) {
-			setAccessLevel('user');
+			setAccessLevel(process.env.REACT_APP_USER_CODE);
 		}
-	}, []);
+	});
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(scheduleDocRef, (docSnapshot) => {
@@ -67,6 +66,7 @@ function App() {
 								<Main
 									schedule={schedule}
 									accessLevel={accessLevel}
+									setAccessCode={setAccessCode}
 								/>
 							) : (
 								<Login setAccessCode={setAccessCode} />
@@ -81,14 +81,10 @@ function App() {
 								path={newDay}
 								element={
 									accessCode ? (
-										<PrivateRoute
-											accessLevel={accessLevel}
-											requiredLevel='admin'>
-											<DayPage
-												day={newDay}
-												schedule={schedule}
-											/>
-										</PrivateRoute>
+										<DayPage
+											day={newDay}
+											schedule={schedule}
+										/>
 									) : (
 										<Login setAccessCode={setAccessCode} />
 									)
@@ -112,13 +108,5 @@ function App() {
 		</div>
 	);
 }
-
-const PrivateRoute = ({ children, accessLevel, requiredLevel }) => {
-	if (accessLevel === null || accessLevel !== requiredLevel) {
-		return <Navigate to='/' />;
-	}
-
-	return children;
-};
 
 export default App;

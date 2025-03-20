@@ -18,7 +18,7 @@ const rainbowColors = [
 	'#9400D3',
 ];
 
-export default function Main({ schedule, accessLevel }) {
+export default function Main({ schedule, accessLevel, setAccessCode }) {
 	const getSlotType = (time, day) => {
 		const keyPattern = new RegExp(`^${time}_${day}_.+$`);
 		const matchingKeys = Object.keys(schedule).filter((key) =>
@@ -37,14 +37,22 @@ export default function Main({ schedule, accessLevel }) {
 			return '';
 		}
 	};
+	const resetCode = () => {
+		localStorage.removeItem('accessCode');
+		setAccessCode(null);
+	};
 
 	return (
 		<div className='container'>
-			{accessLevel ? 'test' : 'nie'}
-			{console.log(accessLevel)}
-			<Link id='undoButton' to='/apipage'>
-				↩ PANEL
-			</Link>
+			<>
+				<div className='btn-div'>
+					{accessLevel === process.env.REACT_APP_ADMIN_CODE && (
+						<Link to='/apipage'>Admin panel</Link>
+					)}
+					<button onClick={resetCode}>Enter new code</button>
+				</div>
+			</>
+
 			<table>
 				<thead>
 					<tr>

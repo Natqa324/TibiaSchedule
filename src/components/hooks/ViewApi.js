@@ -209,7 +209,7 @@ function ViewApi() {
 	return (
 		<>
 			<div className='btn-div'>
-				<Link to='/'>↩ Cofnij</Link>
+				<Link to='/'>↩ Back</Link>
 				<button onClick={() => setShowModal(true)}>
 					Usuń cały tydzień{' '}
 					<span>
