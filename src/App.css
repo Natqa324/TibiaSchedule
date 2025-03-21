@@ -59,8 +59,8 @@ a {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
-	gap: 20px;
-	padding: 15px 20px 20px 20px;
+	gap: 15px;
+	padding: 10px 20px 20px 20px;
 }
 
 .box {
@@ -97,7 +97,7 @@ input:focus {
 }
 
 button {
-	padding: 10px 20px;
+	padding: 8px 12px;
 	color: white;
 	background-color: #30a5ff;
 	border: none;
@@ -107,6 +107,10 @@ button {
 	transition: background-color 0.3s ease;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
 		Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.box > ul > li div > button {
+	line-height: 0 !important;
 }
 
 button:hover {
@@ -189,11 +193,14 @@ form input:last-child {
 	width: 100%;
 	padding: 0 10px;
 }
+.nickname-input > input {
+	margin: 0px 20px;
+}
 
 .profession-input {
 	width: 45%;
 	padding: 0 10px;
-	margin: 0 auto;
+	margin-left: 10px;
 }
 
 .nickname-input button,
@@ -227,6 +234,9 @@ form input:last-child {
 .nicknamebox {
 	display: inline-flex;
 }
+.nicknamebox > input {
+	margin: 0 20px;
+}
 
 .light {
 	background-color: #ffdcdc;
@@ -241,6 +251,7 @@ form input:last-child {
 	background-color: #d5d5d5;
 	height: auto;
 	margin: 0 10px;
+	padding: 8px 12px;
 }
 
 table {
@@ -306,7 +317,7 @@ tr:nth-child(odd) {
 
 .btn-div {
 	text-align: center;
-	padding-top: 15px;
+	padding-top: 10px;
 }
 
 .btn-div span {
@@ -382,4 +393,47 @@ tr:nth-child(odd) {
 
 .fontSize {
 	line-height: 0;
+}
+
+.wrapper .box ul li {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+	.wrapper .box:nth-child(2) ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 10px;
+		padding: 0;
+		max-width: 100%;
+		overflow: visible;
+	}
+
+	.wrapper .box:nth-child(2) ul li {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: center;
+		gap: 10px;
+		box-sizing: border-box;
+	}
+
+	.profession-input {
+		margin-left: 0;
+	}
+
+	.nickname-input,
+	.profession-input {
+		flex: 1 1 100%;
+		text-align: center;
+	}
+
+	.nicknamebox > input {
+		margin: 0;
+	}
+
+	.nickname-input {
+		padding: 0;
+	}
 }
