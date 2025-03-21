@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tibiaschedule/static/css/main.aeb0b7cb.css",
+    "main.css": "/tibiaschedule/static/css/main.d92119ee.css",
     "main.js": "/tibiaschedule/static/js/main.951cabf1.js",
     "static/js/453.e1aee786.chunk.js": "/tibiaschedule/static/js/453.e1aee786.chunk.js",
     "index.html": "/tibiaschedule/index.html",
-    "main.aeb0b7cb.css.map": "/tibiaschedule/static/css/main.aeb0b7cb.css.map",
+    "main.d92119ee.css.map": "/tibiaschedule/static/css/main.d92119ee.css.map",
     "main.951cabf1.js.map": "/tibiaschedule/static/js/main.951cabf1.js.map",
     "453.e1aee786.chunk.js.map": "/tibiaschedule/static/js/453.e1aee786.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aeb0b7cb.css",
+    "static/css/main.d92119ee.css",
     "static/js/main.951cabf1.js"
   ]
 }
