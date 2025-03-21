@@ -44,14 +44,12 @@ export default function Main({ schedule, accessLevel, setAccessCode }) {
 
 	return (
 		<div className='container'>
-			<>
-				<div className='btn-div'>
-					{accessLevel === process.env.REACT_APP_ADMIN_CODE && (
-						<Link to='/apipage'>Admin panel</Link>
-					)}
-					<button onClick={resetCode}>Enter new code</button>
-				</div>
-			</>
+			<div className='btn-main'>
+				{accessLevel === process.env.REACT_APP_ADMIN_CODE && (
+					<Link to='/apipage'>Admin panel</Link>
+				)}
+				<button onClick={resetCode}>Enter new code</button>
+			</div>
 
 			<table>
 				<thead>

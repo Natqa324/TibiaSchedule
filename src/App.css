@@ -313,21 +313,26 @@ tr:nth-child(odd) {
 	padding-left: 5px;
 }
 
-#undoButton {
+#undoButton,
+.btn-main {
 	position: absolute;
 	left: 40px;
 	top: 10px;
 }
 
 #undoButton:hover,
-.btn-div a:hover,
-.btn-div button:hover {
+.btn-div > a:hover,
+.btn-div > button:hover,
+.btn-main > button:hover,
+.btn-main > a:hover {
 	background-color: #e60000;
 }
 
 #undoButton,
-.btn-div a,
-.btn-div button {
+.btn-div > a,
+.btn-div > button,
+.btn-main > button,
+.btn-main > a {
 	display: inline-block;
 	vertical-align: middle;
 	background-color: #ff4d4d;

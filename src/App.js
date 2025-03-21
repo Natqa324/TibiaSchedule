@@ -20,16 +20,14 @@ function App() {
 	const [accessLevel, setAccessLevel] = useState(null);
 
 	useEffect(() => {
-		const storedCode = localStorage.getItem('accessCode');
-		if (storedCode === process.env.REACT_APP_ADMIN_CODE) {
-			setAccessLevel(process.env.REACT_APP_ADMIN_CODE);
-		} else if (storedCode === process.env.REACT_APP_USER_CODE) {
-			setAccessLevel(process.env.REACT_APP_USER_CODE);
-		}
-	});
-
-	useEffect(() => {
 		const unsubscribe = onSnapshot(scheduleDocRef, (docSnapshot) => {
+			const storedCode = localStorage.getItem('accessCode');
+			if (storedCode === process.env.REACT_APP_ADMIN_CODE) {
+				setAccessLevel(process.env.REACT_APP_ADMIN_CODE);
+			} else if (storedCode === process.env.REACT_APP_USER_CODE) {
+				setAccessLevel(process.env.REACT_APP_USER_CODE);
+			}
+
 			if (docSnapshot.exists()) {
 				setSchedule(docSnapshot.data());
 			} else {
@@ -53,7 +51,7 @@ function App() {
 		});
 
 		return () => unsubscribe();
-	}, [db, scheduleDocRef]);
+	}, [db, scheduleDocRef, accessLevel]);
 
 	return (
 		<div className='App'>
@@ -93,7 +91,7 @@ function App() {
 						);
 					})}
 					<Route
-						key='546547'
+						key='2144577'
 						path='/apipage'
 						element={
 							accessCode ? (
